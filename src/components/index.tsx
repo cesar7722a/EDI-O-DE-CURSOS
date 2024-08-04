@@ -3,6 +3,7 @@ import { Button } from "./button"
 import { useState } from "react";
 import { TableHeader } from "./table/table-header";
 import { TableCell } from "./table/table-cell";
+import { TableRow } from "./table/table-row";
 
 interface Cursos {
   id: number;
@@ -31,32 +32,30 @@ export function CreateCurso(){
   <div className="border border-[#292929] bg-[#1B1B1B] rounded-lg">
     <table className="w-[508px] h-52">
             <thead className=" bg-[#7C3AFF]">
-                <tr className=" h-14">
+              <TableRow>
                   <TableHeader rounded="secondary">Curso</TableHeader>
                   <TableHeader>Categoria</TableHeader>
                   <TableHeader>Professor(a)</TableHeader>
                   <TableHeader rounded="terciary">Ativo</TableHeader>
-                </tr>
+              </TableRow>
             </thead>
             <tbody>
-                <tr className=" h-14 border border-b-[#292929] border-t-0 border-r-0 border-l-0">
-                    <TableCell>React</TableCell>
-                    <TableCell>Front-end</TableCell>
-                    <TableCell>Diego Fernande</TableCell>
-                    <TableCell>Sim</TableCell>
-                </tr>
-                <tr className=" h-14 border bg-[#212121] border-b-[#292929] border-t-0 border-r-0 border-l-0">
-                  <TableCell>Java</TableCell>
-                  <TableCell>Back-end</TableCell>
-                  <TableCell>Daniele Leão</TableCell>
-                  <TableCell>Sim</TableCell>
-                </tr>
-                <tr className=" h-14">
-                  <TableCell>Go</TableCell>
-                  <TableCell>Back-en</TableCell>
-                  <TableCell>Sem professor</TableCell>
-                  <TableCell>Não</TableCell>
-                </tr>
+              {
+                cursos.map(curso => {
+                  return(
+                    <TableRow key={curso.id}>
+                    <TableCell>{curso.nome}</TableCell>
+                    <TableCell>{curso.categoria}</TableCell>
+                    <TableCell>{curso.professor}</TableCell>
+                    <TableCell>
+                      {
+                        curso.estado? "Sim": "Não"
+                      }
+                    </TableCell>
+                    </TableRow>
+                  )
+                })
+              }
             </tbody>
         </table>
   </div>
