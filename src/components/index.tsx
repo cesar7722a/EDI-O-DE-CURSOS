@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { Button } from "./button"
 import { useState } from "react";
 import { TableHeader } from "./table/table-header";
+import { TableCell } from "./table/table-cell";
 
 interface Cursos {
   id: number;
@@ -39,22 +40,22 @@ export function CreateCurso(){
             </thead>
             <tbody>
                 <tr className=" h-14 border border-b-[#292929] border-t-0 border-r-0 border-l-0">
-                    <td className="px-7 py-4">React</td>
-                    <td className="px-7 py-4">Front-end</td>
-                    <td className="px-7 py-4">Diego Fernande</td>
-                    <td className="px-7 py-4">Sim</td>
+                    <TableCell>React</TableCell>
+                    <TableCell>Front-end</TableCell>
+                    <TableCell>Diego Fernande</TableCell>
+                    <TableCell>Sim</TableCell>
                 </tr>
                 <tr className=" h-14 border bg-[#212121] border-b-[#292929] border-t-0 border-r-0 border-l-0">
-                    <td className="px-7 py-4">Java</td>
-                    <td className="px-7 py-4">Back-end</td>
-                    <td className="px-7 py-4">Daniele Leão</td>
-                    <td className="px-7 py-4">Sim</td>
+                  <TableCell>Java</TableCell>
+                  <TableCell>Back-end</TableCell>
+                  <TableCell>Daniele Leão</TableCell>
+                  <TableCell>Sim</TableCell>
                 </tr>
                 <tr className=" h-14">
-                    <td className="px-7 py-4">Go</td>
-                    <td className="px-7 py-4">Back-en</td>
-                    <td className="px-7 py-4">Sem professor</td>
-                    <td className="px-7 py-4">Não</td>
+                  <TableCell>Go</TableCell>
+                  <TableCell>Back-en</TableCell>
+                  <TableCell>Sem professor</TableCell>
+                  <TableCell>Não</TableCell>
                 </tr>
             </tbody>
         </table>
