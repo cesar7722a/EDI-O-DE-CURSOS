@@ -1,11 +1,8 @@
-import { useNavigate } from "react-router-dom"
 import { Button } from "./button"
 import { Inputs } from "./inputs"
 
 export function CadastrarCurso(){
 
-
-  const navigate = useNavigate()
 
   return <div className="flex flex-col justify-center items-center h-screen space-y-16">
     <h1 className="font-bold text-4xl text-[#7C3AFF]">Cursos</h1>
@@ -17,8 +14,8 @@ export function CadastrarCurso(){
          <Inputs  placeholder="Professor(a)"/>
          <Inputs  placeholder="Ativo"/>
       </form>
-      
-      <Button onClick={()=> navigate(`/cursos`)} color="primary" size="full">Cadastrar</Button>
+
+      <Button  color="primary" size="full">Cadastrar</Button>
     </div>
   </div>
 }

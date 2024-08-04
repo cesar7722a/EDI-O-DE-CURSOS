@@ -20,11 +20,8 @@ export function CreateCurso(){
     {id:3, nome: "Go", categoria: "bank-end", professor:"Diego Fernandes", estado:true},
     {id:4, nome: "react", categoria: "front-end", professor:"Diego Fernandes", estado:true},
   ])
-  const navigate = useNavigate()
 
-  function navigator(){
-    navigate(`/cadastrarCurso`)
-  }
+  const navigate = useNavigate()
 
   return <div className="flex flex-col justify-center items-center h-screen space-y-16">
     <h1 className="font-bold text-4xl text-[#7C3AFF]">Cursos</h1>
@@ -43,7 +40,7 @@ export function CreateCurso(){
               {
                 cursos.map(curso => {
                   return(
-                    <TableRow key={curso.id}>
+                    <TableRow key={curso.id} onClick={()=> navigate(`/cursos/${curso.nome}`) }>
                     <TableCell>{curso.nome}</TableCell>
                     <TableCell>{curso.categoria}</TableCell>
                     <TableCell>{curso.professor}</TableCell>
@@ -59,7 +56,7 @@ export function CreateCurso(){
             </tbody>
         </table>
   </div>
-  <Button onClick={navigator} color="primary" size="full">
+  <Button onClick={()=> navigate(`/cadastrarCurso`)} color="primary" size="full">
    Novo curso
   </Button>
   </div>
