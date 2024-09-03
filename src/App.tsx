@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <CadastrarCurso/>,
   },
   {
-    path: "/cursos",
+    path: "/cursos/:cursoId",
     element: <Cursos/>,
   },
  

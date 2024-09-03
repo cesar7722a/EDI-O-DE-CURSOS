@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+tbody tr:nth-child(even) {
+  @apply bg-[#212121]
+}
+
+tbody tr{
+  @apply border border-b-[#292929] border-t-0 border-r-0 border-l-0
+}
+
+tbody tr:last-child {
+  @apply border-none
+}

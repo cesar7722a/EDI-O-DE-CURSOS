@@ -3,8 +3,6 @@ import { Button } from "./button";
 
 export function Cursos() {
 
- 
-
   return <div className="flex flex-col justify-center items-center h-screen space-y-16">
       <h1 className="font-bold text-4xl text-[#7C3AFF]">Cursos</h1>
       <div className="flex flex-col justify-center gap-10">
