@@ -1,54 +1,80 @@
 import { createContext, ReactNode, useState } from "react";
-
-export const MyContext = createContext([]);
-
-interface Cursos {
+let nextId = 10;
+interface CursosProps {
   id: number;
-  nome: string;
+  name: string;
   categoria: string;
   professor: string;
   estado: boolean;
 }
 
-interface MyContextProviderProps {
+interface MyContextCusosTypes {
+  children: ReactNode;
+  cursos: CursosProps[];
+  addCurso: (
+    name: string,
+    categoria: string,
+    estado: string,
+    professor: string
+  ) => void;
+  editCurso: (id: number) => void;
+  deleteCurso: (id: number) => void;
+}
+
+export const MyContext = createContext<MyContextCusosTypes | undefined>(
+  undefined
+);
+
+interface CursosProviderProps {
   children: ReactNode;
 }
 
-export function MyContextProvider({ Children }: MyContextProviderProps) {
-  const [cursos, setCursos] = useState<Cursos[]>([
+export function MyContextProvider({ children }: CursosProviderProps) {
+  const [cursos, setCursos] = useState<CursosProps[]>([
     {
       id: 1,
-      nome: "react",
+      name: "React",
       categoria: "front-end",
       professor: "Diego Fernandes",
       estado: false,
     },
     {
       id: 2,
-      nome: "Java",
+      name: "Java",
       categoria: "bank-end",
       professor: "Diego Fernandes",
       estado: false,
     },
     {
       id: 3,
-      nome: "Go",
+      name: "Go",
       categoria: "bank-end",
       professor: "Diego Fernandes",
       estado: true,
     },
     {
       id: 4,
-      nome: "react",
+      name: "React",
       categoria: "front-end",
       professor: "Diego Fernandes",
       estado: true,
     },
   ]);
 
+  function addCurso({ name, categoria, estado, professor }: CursosProps) {
+    const novaCurso: CursosProps = {
+      id: nextId++,
+      name: name,
+      estado: estado,
+      categoria: categoria,
+      professor: professor,
+    };
+    setCursos([...cursos, novaCurso]);
+  }
+
   return (
-    <MyContext.Provider value={{ cursos, setCursos }}>
-      {Children}
+    <MyContext.Provider value={{ cursos, addCurso, setCursos }}>
+      {children}
     </MyContext.Provider>
   );
 }
